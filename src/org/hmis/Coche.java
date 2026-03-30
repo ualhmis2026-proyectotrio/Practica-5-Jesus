@@ -3,17 +3,16 @@ package org.hmis;
 import java.util.Objects;
 
 public class Coche {
-    private String marca;
-    private String modelo;
-    private int año;
-    private int precio;
+	private String marca;
+	private String modelo;
+	private int año;
+	private int precio;
 
-    // Constructor por defecto
-    public Coche() {}
+	// Constructor por defecto
+	public Coche() {
+	}
 
-    
-    
-    public Coche(String marca, String modelo, int año, int precio) {
+	public Coche(String marca, String modelo, int año, int precio) {
 		super();
 		this.marca = marca;
 		this.modelo = modelo;
@@ -21,40 +20,38 @@ public class Coche {
 		this.precio = precio;
 	}
 
-
 	// Getters y setters
-    public String getMarca() {
-        return marca;
-    }
+	public String getMarca() {
+		return marca;
+	}
 
-    public void setMarca(String marca) {
-        this.marca = marca;
-    }
+	public void setMarca(String marca) {
+		this.marca = marca;
+	}
 
-    public String getModelo() {
-        return modelo;
-    }
+	public String getModelo() {
+		return modelo;
+	}
 
-    public void setModelo(String modelo) {
-        this.modelo = modelo;
-    }
+	public void setModelo(String modelo) {
+		this.modelo = modelo;
+	}
 
-    public int getAño() {
-        return año;
-    }
+	public int getAño() {
+		return año;
+	}
 
-    public void setAño(int año) {
-        this.año = año;
-    }
+	public void setAño(int año) {
+		this.año = año;
+	}
 
-    public int getPrecio() {
-        return precio;
-    }
+	public int getPrecio() {
+		return precio;
+	}
 
-    public void setPrecio(int precio) {
-        this.precio = precio;
-    }
-
+	public void setPrecio(int precio) {
+		this.precio = precio;
+	}
 
 	@Override
 	public boolean equals(Object obj) {
@@ -69,13 +66,9 @@ public class Coche {
 				&& precio == other.precio;
 	}
 
-
-
 	@Override
 	public String toString() {
 		return "Coche [marca=" + marca + ", modelo=" + modelo + ", año=" + año + ", precio=" + precio + "]";
 	}
-	
-	
-    
+
 }

@@ -29,7 +29,6 @@ pipeline {
                 }
             }
         }
-        // APARTADO 7.5: Generar Documentación
         stage ('Documentation') {
             steps {
                 sh "mvn -f pom.xml javadoc:javadoc javadoc:aggregate"
@@ -48,10 +47,8 @@ pipeline {
                 exclusionPattern: '**/test/'
             )
             
-            // Publicamos el Site PRIMERO para asegurarnos de que no se lo salta
             publishHTML(target: [reportName: 'Maven Site', reportDir: 'target/site', reportFiles: 'index.html', keepAll: false])
             
-            // Protegemos el Javadoc para que no rompa el Pipeline si Maven no lo genera
             script {
                 try {
                     step([$class: 'JavadocArchiver', javadocDir: 'target/site/apidocs', keepAll: false])

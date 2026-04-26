@@ -32,9 +32,15 @@ pipeline {
         }
         stage('SonarQube analysis') {
             steps {
-                // Esto conecta con la configuración que hiciste en el paso anterior
-                withSonarQubeEnv(credentialsId: 'sonar_server', installationName: 'servidor_sonarqube') {
-                    sh 'mvn sonar:sonar'
+                script {
+                    try {
+                        withSonarQubeEnv(credentialsId: 'sonar_server', installationName: 'servidor_sonarqube') {
+                            // Usamos el comando de Maven para Sonar
+                            sh 'mvn sonar:sonar'
+                        }
+                    } catch (Exception e) {
+                        echo "Aviso: No se pudo realizar el análisis de SonarQube. Verifica que el servidor esté activo."
+                    }
                 }
             }
         }

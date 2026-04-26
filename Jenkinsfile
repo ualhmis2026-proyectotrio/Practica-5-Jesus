@@ -16,7 +16,8 @@ pipeline {
         }
         stage ('Analysis') {
             steps {
-                sh "mvn -f pom.xml site"
+                // Usamos returnStatus: true para que Jenkins no explote por la caída de la API del NIST
+                sh returnStatus: true, script: "mvn -f pom.xml site"
             }
             post {
                 always {
